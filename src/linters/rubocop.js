@@ -69,7 +69,7 @@ class RuboCop {
 	static parseOutput(dir, output) {
 		const lintResult = initLintResult();
 		lintResult.isSuccess = output.status === 0;
-
+		console.log(output);
 		let outputJson;
 		try {
 			outputJson = JSON.parse(output.stdout);
