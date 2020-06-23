@@ -52,8 +52,10 @@ class RuboCop {
 			throw new Error(`${this.name} error: File extensions are not configurable`);
 		}
 
-		const fixArg = fix ? "--auto-correct" : "";
-		return run(`${prefix} rubocop --format json ${fixArg} ${args}`, {
+    const fixArg = fix ? "--auto-correct" : "";
+    const command = `${prefix} rubocop --format json ${fixArg} ${args}`
+    console.log(`Run: ${command} in DIR : ${dir}`);
+		return run(command, {
 			dir,
 			ignoreErrors: true,
 		});
